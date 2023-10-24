@@ -5,9 +5,10 @@ import win32gui, win32com.client
 
 class mysterium:
     # set a simple true and false for pattern matching
-    def __init__(self, match=True, max_tries=3):
+    def __init__(self, country="", match=True, max_tries=3):
         self.match = match
         self.max_tries = max_tries
+        self.country = country
 
     def connect(self):
         while self.max_tries > 0:
@@ -26,7 +27,7 @@ class mysterium:
                 pyautogui.click(element)
             pyautogui.press('backspace')
             time.sleep(0.5)
-            pyautogui.typewrite('united kingdom')
+            pyautogui.typewrite(country)
             time.sleep(3)
             # click on the first option
             element_2 = pyautogui.locateCenterOnScreen('temp_2.png')
